@@ -19,8 +19,12 @@ jobs:
     configuring_docker:
         runs-on: ubuntu-latest
         steps:
+
+            - name: "Installing updates"
+              run: sudo apt update
+             
             - name: "Installing docker"
-              run: sudo apt install docker -y
+              run: sudo apt install docker.io -y
 
             - name: "Starting docker service"
               run: sudo systemctl start docker
