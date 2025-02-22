@@ -12,6 +12,9 @@ jobs:
         steps:
             - name: "Print Hello"
               run: echo "Hello World"
-
+    
+    test:
+        runs-on: ububtu-latest
+        steps:
             - name: "Printing Date"
               run: echo $(date)
