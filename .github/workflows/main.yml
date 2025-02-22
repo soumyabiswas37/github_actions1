@@ -7,14 +7,32 @@ on:
             - main
 
 jobs:
-    build:
+    test:
         runs-on: ubuntu-latest
         steps:
             - name: "Print Hello"
               run: echo "Hello World"
-    
-    test:
-        runs-on: ububtu-latest
-        steps:
+
             - name: "Printing Date"
               run: echo $(date)
+
+    configuring_docker:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Installing docker"
+              run: sudo apt install docker -y
+
+            - name: "Starting docker service"
+              run: sudo systemctl start docker
+    
+            - name: "Pulling docker image"
+              run: sudo docker pull centos:latest
+
+            - name: "Listing docker images"
+              run: sudo docker images
+
+            - name: "Running container"
+              run: sudo docker run -dit --name MYCONT1 centos:latest
+
+            - name: "Listing containers"
+              run: sudo docker ps -a
