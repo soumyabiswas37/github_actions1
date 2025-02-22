@@ -11,3 +11,6 @@ jobs:
         steps:
             - name: "Print Hello"
               run: echo "Hello World"
+
+            - name: "Printing Date"
+              run: echo $(date)
